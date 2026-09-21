@@ -100,14 +100,17 @@ Run `setup_openfold` once to download the OpenFold3 checkpoint
 
 ## Running it
 
+The notebook is organized into nine numbered sections, each introduced by a
+markdown cell explaining what it does and why. Run them in order:
+
 1. Place `protein_mutation_dataset_APC.csv` next to the notebook.
-2. Run cells 1–6 to install dependencies, set CUDA/CUTLASS environment
-   variables, and write the runner YAML.
-3. Run the single-sample cells (7–10) to sanity-check one variant end to end
-   and inspect the WT/MUT overlay.
-4. Run cells 11–13 to generate all 102 window queries, fold them, and zip the
-   results into `all_openfold_predictions.zip`.
-5. Run the final cell to build features and train/evaluate the ensemble.
+2. **§1–4** — install dependencies, download the OpenFold3 weights, set the
+   CUDA/CUTLASS environment, and write the low-memory runner YAML.
+3. **§5–7** — dry-run one variant end to end: cut the mutation window, fold
+   the WT and MUT halves, superimpose them, and inspect the 3D overlay.
+4. **§8** — generate all 102 window queries, fold them (hours; resumable), and
+   zip the results into `all_openfold_predictions.zip`.
+5. **§9** — build features and train/evaluate the stacked ensemble.
 
 ## Status and caveats
 
